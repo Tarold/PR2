@@ -71,7 +71,7 @@ body{
 }
 .promo{
     box-shadow: 0px 7px 12px rgba(158,158,163,0.1);
-    background: #fff1b8 url(../img/pngegg.png) no-repeat top -35px right 38px / 488px;
+    background: #fff1b8 url(../img/pngegg.png) no-repeat right 20px / 550px;
     border-radius: 10px;
     padding: 68px 70px;
     margin-bottom: 56px;
@@ -184,5 +184,4 @@ body{
     vertical-align: middle;
     border-radius: 50%;
     margin-left: 10px;
-
 }
