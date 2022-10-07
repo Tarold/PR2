@@ -1,205 +1,356 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Delivery Food - доставка їжі додому</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/normalize.css">
-    </head>
-    <body>
-        <div class="container">
-            <header class="header">
-                <a href="index.html" class="logo">
-                    <img src="img/logo.svg" alt="logo" class="logo" />
-                </a>
-                <input type="text" class="input input-address" placeholder="Адреса доставки">
-                <div class="buttons">
-                    <button class="button button-primary">
-                        <img src="img/user.svg" alt="user" class="button-icon">
-                        <span class="button-text">Увійти</span>
-                    </button>
-                    <button class="button">
-                        <img src="img/shopping-cart.svg" alt="user" class="button-icon">
-                        <span class="button-text">Кошик</span>
-                    </button>
-                </div>
-            </header>
-
-            
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Food - доставка їжі додому</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="index.html" class="logo">
+          <img src="img/logo.svg" alt="logo" class="logo" />
+        </a>
+        <input
+          type="text"
+          class="input input-address"
+          placeholder="Адреса доставки"
+        />
+        <div class="buttons">
+          <span class="user-name"></span>
+          <button class="button button-primary button-auth">
+            <img src="img/userWhite.svg" alt="user" class="button-icon" />
+            <span class="button-text">Увійти</span>
+          </button>
+          <button class="button" id="cart-button">
+            <img src="img/shopping-cart.svg" alt="user" class="button-icon" />
+            <span class="button-text">Кошик</span>
+          </button>
+          <button class="button button-primary button-out">
+            <img src="img/userWhite.svg" alt="user" class="button-icon" />
+            <span class="button-text">Вийти</span>
+          </button>
         </div>
-        <!-- /.container -->
-        <main class="main">
-            <div class="container">
-                <section class="promo">
-                    <h1 class="promo-title">Онлайн сервіс <br/>доставки їжі додому</h1>
-                    <p class="promo-text">
-                        Страви з улюбленого ресторану привезе кур'єр у рукавичках, масці та з антисептиком
-                    </p>
-                </section>
-                
-                <section class="restaraunt">
-                    <div class="section-heading">
-                        <h2 class="section-title">Ресторани</h2>
-                    <input type="text" class="input input-search" placeholder="Пошук страв та ресторанів" />
-                    </div>
-                    <div class="cards">
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card1.jpg" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                <h3 class="card-title">Mine Pizza</h3>
-                                    <span class="card-tag tag">45 хв</span>
-                                </div>
-                                <!-- /.card-heading -->
-                                <div class="card-info">
-                                    <div class="rating">
-                                    <img src="img/star.svg" alt="rating" class="rating-star">
-                                    4.3</div>
-                                <div class="price">від 110 грн</div>
-                                    <div class="category">Піцца</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card2.png" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                <h3 class="card-title">Pizza Sut</h3>
-                                <span class="card-tag tag">25 хв</span>
-                                </div>
-                                <!-- /.card-heading -->
-                                <div class="card-info">
-                                    <div class="rating">
-                                    <img src="img/star.svg" alt="rating" class="rating-star">
-                                    4.8
-                                    </div>
-                                <div class="price">від 80 грн</div>
-                                    <div class="category">Піцца</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card3.png" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                    <h3 class="card-title">Lawca Pizza</h3>
-                                    <span class="card-tag tag">20 хв</span>
-                
-                                    <!-- /.card-heading -->
-                                </div>
-                                <div class="card-info">
-                                    <div class="rating">
-                                        <img src="img/star.svg" alt="rating" class="rating-star">
-                                        4.5
-                                    </div>
-                                    <div class="price">від 110 грн</div>
-                                    <div class="category">Піцца</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card4.png" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                    <h3 class="card-title">RoLL&Pizza</h3>
-                                    <span class="card-tag tag">30 хв</span>
-                                </div>
-                                <!-- /.card-heading -->
-                
-                                <div class="card-info">
-                                    <div class="rating">
-                                        <img src="img/star.svg" alt="rating" class="rating-star">
-                                        4.9
-                                    </div>
-                                    <div class="price">від 100 грн</div>
-                                    <div class="category">Роли</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card5.png" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                    <h3 class="card-title">Boggie Pizza</h3>
-                                    <span class="card-tag tag">85 хв</span>
-                                </div>
-                                <!-- /.card-heading -->
-                
-                                <div class="card-info">
-                                    <div class="rating">
-                                        <img src="img/star.svg" alt="rating" class="rating-star">
-                                        4.5
-                                    </div>
-                                    <div class="price">від 189 грн</div>
-                                    <div class="category">Піцца</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                
-                        <a href="restaraunt.html" class="card">
-                            <img src="img/card6.png" alt="card" class="card-image" />
-                            <div class="card-text">
-                                <div class="card-heading">
-                                    <h3 class="card-title">Пузата Хата</h3>
-                                    <span class="card-tag tag">40 хв</span>
-                                </div>
-                                <!-- /.card-heading -->
-                
-                                <div class="card-info">
-                                    <div class="rating">
-                                        <img src="img/star.svg" alt="rating" class="rating-star">
-                                        4.4
-                                    </div>
-                                    <div class="price">від 70 грн</div>
-                                    <div class="category">Піцца</div>
-                                </div>
-                                <!-- /.card-text -->
-                            </div>
-                        </a>
-                        <!-- /.card -->
-                    </div>
-                    <!-- /.cards -->
-                
-                </section>
-            </div>
-            <!-- /.container -->
-            <footer class="footer">
-                <div class="container">
-                    <div class="footer-block">
-                        <img src="img/logo.svg" alt="logo" class="logo footer-logo">
-                        <nav class="footer-nav">
-                            <a href="" class="footer-link">Ресторанам</a>
-                            <a href="" class="footer-link">Кур'єрам</a>
-                            <a href="" class="footer-link">Прес-центр</a>
-                            <a href="" class="footer-link">Контакти</a>
-                        </nav>
-                         <div class="social-links">
-                            <a href="" class="social-link"><img src="img/Inst.svg" alt="instagram"></a>
-                            <a href="" class="social-link"><img src="img/Facebook.svg" alt="facebook"></a>
-                            <a href="" class="social-link"><img src="img/telegram.svg" alt="telegram"></a>
-                         </div>
-                    </div>
-                    <!-- /.footer-block -->
+      </header>
+    </div>
+    <!-- /.container -->
+    <main class="main">
+      <div class="container">
+        <section class="promo">
+          <h1 class="promo-title">Онлайн сервіс <br />доставки їжі додому</h1>
+          <p class="promo-text">
+            Страви з улюбленого ресторану привезе кур'єр у рукавичках, масці та
+            з антисептиком
+          </p>
+        </section>
+
+        <section class="restaraunt">
+          <div class="section-heading">
+            <h2 class="section-title">Ресторани</h2>
+            <input
+              type="text"
+              class="input input-search"
+              placeholder="Пошук страв та ресторанів"
+            />
+          </div>
+          <div class="cards">
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.2s"
+            >
+              <img src="img/card1.jpg" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">Mine Pizza</h3>
+                  <span class="card-tag tag">45 хв</span>
                 </div>
-            </footer>
-        </main>
-    </body>
+                <!-- /.card-heading -->
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.3
+                  </div>
+                  <div class="price">від 110 грн</div>
+                  <div class="category">Піцца</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.4s"
+            >
+              <img src="img/card2.png" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">Pizza Sut</h3>
+                  <span class="card-tag tag">25 хв</span>
+                </div>
+                <!-- /.card-heading -->
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.8
+                  </div>
+                  <div class="price">від 80 грн</div>
+                  <div class="category">Піцца</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.6s"
+            >
+              <img src="img/card3.png" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">Lawca Pizza</h3>
+                  <span class="card-tag tag">20 хв</span>
+
+                  <!-- /.card-heading -->
+                </div>
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.5
+                  </div>
+                  <div class="price">від 110 грн</div>
+                  <div class="category">Піцца</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.2s"
+            >
+              <img src="img/card4.png" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">RoLL&Pizza</h3>
+                  <span class="card-tag tag">30 хв</span>
+                </div>
+                <!-- /.card-heading -->
+
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.9
+                  </div>
+                  <div class="price">від 100 грн</div>
+                  <div class="category">Роли</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.4s"
+            >
+              <img src="img/card5.png" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">Boggie Pizza</h3>
+                  <span class="card-tag tag">85 хв</span>
+                </div>
+                <!-- /.card-heading -->
+
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.5
+                  </div>
+                  <div class="price">від 189 грн</div>
+                  <div class="category">Піцца</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+
+            <a
+              href="restaraunt.html"
+              class="card wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.6s"
+            >
+              <img src="img/card6.png" alt="card" class="card-image" />
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">Пузата Хата</h3>
+                  <span class="card-tag tag">40 хв</span>
+                </div>
+                <!-- /.card-heading -->
+
+                <div class="card-info">
+                  <div class="rating">
+                    <img src="img/star.svg" alt="rating" class="rating-star" />
+                    4.4
+                  </div>
+                  <div class="price">від 70 грн</div>
+                  <div class="category">Піцца</div>
+                </div>
+                <!-- /.card-text -->
+              </div>
+            </a>
+            <!-- /.card -->
+          </div>
+          <!-- /.cards -->
+        </section>
+      </div>
+      <!-- /.container -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-block">
+            <img src="img/logo.svg" alt="logo" class="logo footer-logo" />
+            <nav class="footer-nav">
+              <a href="" class="footer-link">Ресторанам</a>
+              <a href="" class="footer-link">Кур'єрам</a>
+              <a href="" class="footer-link">Прес-центр</a>
+              <a href="" class="footer-link">Контакти</a>
+            </nav>
+            <div class="social-links">
+              <a href="" class="social-link"
+                ><img src="img/Inst.svg" alt="instagram"
+              /></a>
+              <a href="" class="social-link"
+                ><img src="img/Facebook.svg" alt="facebook"
+              /></a>
+              <a href="" class="social-link"
+                ><img src="img/telegram.svg" alt="telegram"
+              /></a>
+            </div>
+          </div>
+          <!-- /.footer-block -->
+        </div>
+      </footer>
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h3 class="modal-title">Кошик</h3>
+            <button class="close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="food-row">
+              <span class="food-name">Ролл угорь стандарт</span>
+              <strong class="food-price">250</strong>
+              <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+              </div>
+            </div>
+            <!-- /.foods-row -->
+            <div class="food-row">
+              <span class="food-name">Ролл угорь стандарт</span>
+              <strong class="food-price">250</strong>
+              <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+              </div>
+            </div>
+            <!-- /.foods-row -->
+            <div class="food-row">
+              <span class="food-name">Ролл угорь стандарт</span>
+              <strong class="food-price">250</strong>
+              <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+              </div>
+            </div>
+            <!-- /.foods-row -->
+            <div class="food-row">
+              <span class="food-name">Ролл угорь стандарт</span>
+              <strong class="food-price">250</strong>
+              <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+              </div>
+            </div>
+            <!-- /.foods-row -->
+            <div class="food-row">
+              <span class="food-name">Ролл угорь стандарт</span>
+              <strong class="food-price">250</strong>
+              <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+              </div>
+            </div>
+            <!-- /.foods-row -->
+          </div>
+          <!-- /.modal-body -->
+          <div class="modal-footer">
+            <span class="modal-pricetag">1250</span>
+            <div class="footer-buttons">
+              <button class="button button-primary">Оформить заказ</button>
+              <button class="button">Отмена</button>
+            </div>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <div class="modal modal-auth">
+        <div class="modal-dialog modal-dialog-auth">
+          <button class="close-auth close">&times;</button>
+
+          <form id="logInForm">
+            <fieldset class="modal-body modal-auth-form">
+              <legend class="modal-title">Авторизація</legend>
+              <div class="modal-auth-container">
+                <div class="modal-auth-item">
+                  <span>Логін</span>
+                  <input id="login" type="text" />
+                </div>
+                <div class="modal-auth-item">
+                  <label class="label-auth">
+                    <span>Пароль</span>
+                    <input id="password" type="password" />
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="modal-footer">
+              <div class="footer-buttons footer-login">
+                <button class="button button-login" type="submit">
+                  Увійти
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
