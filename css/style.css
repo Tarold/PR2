@@ -313,9 +313,7 @@ body {
   font-size: 36px;
   line-height: 42px;
 }
-.modal-body {
-  margin-bottom: 52px;
-}
+
 .close {
   font-size: 36px;
   border: none;
@@ -327,23 +325,21 @@ body {
   justify-content: flex-end;
 }
 .modal-dialog-auth {
-  width: 70%;
+  width: auto;
 }
-#logInForm {
-  margin: auto auto;
-  width: 80%;
-}
-.modal-auth-form {
-  width: 65%;
-  margin: auto auto;
-}
+
 .modal-auth-container {
   display: flex;
   flex-direction: column;
 }
 .modal-auth-item {
   margin: 20px 0;
-  width: 100%;
+  display: flex;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.modal-auth-item span {
+  padding-right: 8px;
 }
 #login {
   margin-left: 14px;
