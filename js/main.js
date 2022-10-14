@@ -1,18 +1,6 @@
 const cartButton = document.querySelector("#cart-button");
 const modal = document.querySelector(".modal");
 const close = document.querySelector(".close");
-
-cartButton.addEventListener("click", toggleModal);
-close.addEventListener("click", toggleModal);
-
-function toggleModal() {
-  modal.classList.toggle("is-open");
-}
-
-new WOW().init();
-
-///day1
-
 const buttonAuth = document.querySelector(".button-auth");
 const modalAuth = document.querySelector(".modal-auth");
 const closeAuth = document.querySelector(".close-auth");
@@ -25,10 +13,17 @@ const containerPromo = document.querySelector(".container-promo");
 const restaraunts = document.querySelector(".restaraunts");
 const menu = document.querySelector(".menu");
 const logo = document.querySelector(".logo");
-// const cardsMenu = document.querySelector(".cards-menu");
+const cardsMenu = document.querySelector(".cards-menu");
 
 let login = localStorage.getItem("gloDelivery");
 let k = 0;
+
+new WOW().init();
+
+function toggleModal() {
+  modal.classList.toggle("is-open");
+}
+
 function toogleModalAuth() {
   modalAuth.classList.toggle("is-open");
   if (modalAuth.classList.contains("is-open")) {
@@ -98,7 +93,6 @@ function checkAuth() {
     notAutorized();
   }
 }
-checkAuth();
 
 function createCardRestaurant() {
   const card = `
@@ -127,16 +121,62 @@ function createCardRestaurant() {
   cardsRestaurants.insertAdjacentHTML("beforeend", card);
 }
 
-createCardRestaurant();
+function createCardGood() {
+  const card = document.createElement("div");
+  card.className = "card wow animate__animated animate__fadeInUp";
+  card.setAttribute("data-wow-delay", "0.2s");
+
+  card.addParametr;
+
+  card.insertAdjacentHTML(
+    "beforeend",
+    `
+  <img src="img/card1.jpg" alt="card" class="card-image" />
+  <div class="card-text">
+    <div class="card-heading">
+      <h3 class="card-title card-title-reg">Пузата Chicken</h3>
+    </div>
+    <div class="card-info">
+      <div class="ingredietns">
+        Ковбаса домашня, картопляне пюре, салат Олів'є, вареники з
+        картоплею
+      </div>
+    </div>
+
+    <div class="card-buttons">
+      <button class="button button-primary">
+        <span class="button-card-text">В кошик</span>
+        <img
+          src="img/store.svg"
+          alt="shopping-cart"
+          class="card-button-image"
+        />
+      </button>
+      <strong class="card-price-bold">100 грн</strong>
+    </div>
+  </div>
+  `
+  );
+  cardsMenu.insertAdjacentElement("beforeend", card);
+}
 
 function openGoods(event) {
   const target = event.target;
 
   const restaraunt = target.closest(".card");
   if (restaraunt) {
+    cardsMenu.textContent = "";
+
     containerPromo.classList.add("hide");
     restaraunts.classList.add("hide");
     menu.classList.remove("hide");
+
+    createCardGood();
+    createCardGood();
+    createCardGood();
+    createCardGood();
+    createCardGood();
+    createCardGood();
   }
 }
 
@@ -153,3 +193,16 @@ logo.addEventListener("click", function () {
   restaraunts.classList.remove("hide");
   menu.classList.add("hide");
 });
+
+cartButton.addEventListener("click", toggleModal);
+
+close.addEventListener("click", toggleModal);
+
+checkAuth();
+
+createCardRestaurant();
+createCardRestaurant();
+createCardRestaurant();
+createCardRestaurant();
+createCardRestaurant();
+createCardRestaurant();
