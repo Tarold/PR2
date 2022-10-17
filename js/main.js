@@ -20,6 +20,16 @@ const cardsMenu = document.querySelector(".cards-menu");
 let login = localStorage.getItem("gloDelivery");
 let k = 0;
 
+const getData = async function (url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(
+      `Помилка за адресою ${url} статус помилки ${response.status}!`
+    );
+  }
+  return await response.json();
+};
+
 new WOW().init();
 
 function toggleModal() {
@@ -96,25 +106,39 @@ function checkAuth() {
   }
 }
 
-function createCardRestaurant() {
+function createCardRestaurant(restaraunt) {
+  const {
+    image,
+    kitchen,
+    name,
+    price,
+    stars,
+    products,
+    time_of_delivery: timeOfDelivery,
+  } = restaraunt;
   const card = `
   <a
     class="card wow animate__animated animate__fadeInUp"
     data-wow-delay="0.6s"
+    data-products="${products}"
+    data-name="${name}"
+    data-stars="${stars}"
+    data-price="${price}"
+    data-kitchen="${kitchen}"
   >
-    <img src="img/card3.png" alt="card" class="card-image" />
+    <img src="${image}" class="card-image"/>
     <div class="card-text">
       <div class="card-heading">
-        <h3 class="card-title">Lawca Pizza</h3>
-        <span class="card-tag tag">20 хв</span>
+        <h3 class="card-title">${name}</h3>
+        <span class="card-tag tag">${timeOfDelivery} хв</span>
       </div>
       <div class="card-info">
         <div class="rating">
           <img src="img/star.svg" alt="rating" class="rating-star" />
-          4.5
+          ${stars}
         </div>
-        <div class="price">від 110 грн</div>
-        <div class="category">Піцца</div>
+        <div class="price">від ${price} грн</div>
+        <div class="category">${kitchen}</div>
       </div>
     </div>
   </a>
@@ -123,9 +147,11 @@ function createCardRestaurant() {
   cardsRestaurants.insertAdjacentHTML("beforeend", card);
 }
 
-function createCardGood() {
+function createCardGood(goods) {
+  const { description, id, image, name, price } = goods;
   const card = document.createElement("div");
   card.className = "card wow animate__animated animate__fadeInUp";
+  card.id = id;
   card.setAttribute("data-wow-delay", "0.2s");
 
   card.addParametr;
@@ -133,15 +159,14 @@ function createCardGood() {
   card.insertAdjacentHTML(
     "beforeend",
     `
-  <img src="img/card1.jpg" alt="card" class="card-image" />
+  <img src="${image}" alt="card" class="card-image" />
   <div class="card-text">
     <div class="card-heading">
-      <h3 class="card-title card-title-reg">Пузата Chicken</h3>
+      <h3 class="card-title card-title-reg">${name}</h3>
     </div>
     <div class="card-info">
       <div class="ingredietns">
-        Ковбаса домашня, картопляне пюре, салат Олів'є, вареники з
-        картоплею
+        ${description}
       </div>
     </div>
 
@@ -154,7 +179,7 @@ function createCardGood() {
           class="card-button-image"
         />
       </button>
-      <strong class="card-price-bold">100 грн</strong>
+      <strong class="card-price-bold">${price} грн</strong>
     </div>
   </div>
   `
@@ -172,13 +197,18 @@ function openGoods(event) {
     containerPromo.classList.add("hide");
     restaraunts.classList.add("hide");
     menu.classList.remove("hide");
-
-    createCardGood();
-    createCardGood();
-    createCardGood();
-    createCardGood();
-    createCardGood();
-    createCardGood();
+    getData(`./db/${restaraunt.dataset.products}`).then(function (data) {
+      data.forEach(createCardGood);
+    });
+    console.log(restaraunt.dataset.name);
+    let element = document.getElementById("menu101");
+    element.textContent = restaraunt.dataset.name;
+    element = document.getElementById("menu102");
+    element.textContent = restaraunt.dataset.stars;
+    element = document.getElementById("menu103");
+    element.textContent = `від ${restaraunt.dataset.price} грн`;
+    element = document.getElementById("menu104");
+    element.textContent = restaraunt.dataset.kitchen;
   }
 }
 
@@ -196,21 +226,22 @@ logo.addEventListener("click", function () {
   menu.classList.add("hide");
 });
 
-cartButton.addEventListener("click", toggleModal);
+function init() {
+  getData("./db/partners.json").then(function (data) {
+    data.forEach(createCardRestaurant);
+  });
 
-close.addEventListener("click", toggleModal);
+  cartButton.addEventListener("click", toggleModal);
 
-checkAuth();
+  close.addEventListener("click", toggleModal);
 
-createCardRestaurant();
-createCardRestaurant();
-createCardRestaurant();
-createCardRestaurant();
-createCardRestaurant();
-createCardRestaurant();
+  checkAuth();
 
-new Swiper(".swiper", {
-  sliderPerView: 1,
-  loop: true,
-  autoplay: true,
-});
+  new Swiper(".swiper", {
+    sliderPerView: 1,
+    loop: true,
+    autoplay: true,
+  });
+}
+
+init();

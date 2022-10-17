@@ -223,6 +223,7 @@ body {
   font-weight: 700;
   font-size: 18px;
   line-height: 32px;
+  display: flex;
 }
 .price,
 .category {
