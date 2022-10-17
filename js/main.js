@@ -16,6 +16,12 @@ const restaraunts = document.querySelector(".restaraunts");
 const menu = document.querySelector(".menu");
 const logo = document.querySelector(".logo");
 const cardsMenu = document.querySelector(".cards-menu");
+const restarauntTitle = document.getElementById("menu101");
+const restarauntRating = document.getElementById("menu102");
+const restarauntPrice = document.getElementById("menu103");
+const restarauntCategory = document.getElementById("menu104");
+const starRating = document.getElementById("menu105");
+const inputSearch = document.querySelector(".input-search");
 
 let login = localStorage.getItem("gloDelivery");
 let k = 0;
@@ -197,18 +203,16 @@ function openGoods(event) {
     containerPromo.classList.add("hide");
     restaraunts.classList.add("hide");
     menu.classList.remove("hide");
+
+    restarauntTitle.textContent = restaraunt.dataset.name;
+    restarauntRating.textContent = restaraunt.dataset.stars;
+    restarauntPrice.textContent = `від ${restaraunt.dataset.price} грн`;
+    restarauntCategory.textContent = restaraunt.dataset.kitchen;
+    starRating.classList.remove("hide");
+
     getData(`./db/${restaraunt.dataset.products}`).then(function (data) {
       data.forEach(createCardGood);
     });
-    console.log(restaraunt.dataset.name);
-    let element = document.getElementById("menu101");
-    element.textContent = restaraunt.dataset.name;
-    element = document.getElementById("menu102");
-    element.textContent = restaraunt.dataset.stars;
-    element = document.getElementById("menu103");
-    element.textContent = `від ${restaraunt.dataset.price} грн`;
-    element = document.getElementById("menu104");
-    element.textContent = restaraunt.dataset.kitchen;
   }
 }
 
@@ -241,6 +245,50 @@ function init() {
     sliderPerView: 1,
     loop: true,
     autoplay: true,
+  });
+
+  inputSearch.addEventListener("keypress", function (event) {
+    if (event.charCode == 13) {
+      const value = event.target.value;
+
+      if (!value) {
+        event.target.classList.add("red");
+        event.target.value = "";
+        setTimeout(function () {
+          event.target.classList.remove("red");
+        }, 1500);
+        return;
+      }
+      getData("./db/partners.json")
+        .then(function (data) {
+          return data.map(function (partner) {
+            return partner.products;
+          });
+        })
+        .then(function (linksProduct) {
+          cardsMenu.textContent = "";
+
+          linksProduct.forEach(function (link) {
+            getData(`./db/${link}`).then(function (data) {
+              const resultSearch = data.filter(function (item) {
+                const name = item.name.toLowerCase();
+                return name.includes(value.toLowerCase());
+              });
+
+              containerPromo.classList.add("hide");
+              restaraunts.classList.add("hide");
+              menu.classList.remove("hide");
+
+              starRating.classList.add("hide");
+              restarauntTitle.textContent = "Результат поиска";
+              restarauntRating.textContent = "";
+              restarauntPrice.textContent = "";
+              restarauntCategory.textContent = "разная кухня";
+              resultSearch.forEach(createCardGood);
+            });
+          });
+        });
+    }
   });
 }
 

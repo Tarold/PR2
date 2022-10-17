@@ -430,6 +430,10 @@ body {
 .hide * {
   display: none;
 }
+.red {
+  background-color: lightpink;
+}
+
 @media (max-width: 1366px) {
   .container {
     max-width: 960px;
