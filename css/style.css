@@ -108,6 +108,18 @@ body {
   padding: 68px 70px;
   margin-bottom: 56px;
 }
+.pizza {
+  background: #fff1b8 url(../img/promo/pizza.png) no-repeat right 20px / 550px;
+}
+.kebab {
+  background: #b8e5ff url(../img/promo/kebab.png) no-repeat right 20px / 550px;
+}
+.vegetables {
+  background: #b8ffc7 url(../img/promo/vegetables.png) no-repeat right 0 / 850px;
+}
+.sushi {
+  background: #ffb8ff url(../img/promo/sushi.png) no-repeat right 20px / 550px;
+}
 .promo-title {
   font-style: normal;
   font-weight: 700;

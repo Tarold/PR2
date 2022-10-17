@@ -1,3 +1,5 @@
+import Swiper from "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js";
+
 const cartButton = document.querySelector("#cart-button");
 const modal = document.querySelector(".modal");
 const close = document.querySelector(".close");
@@ -206,3 +208,9 @@ createCardRestaurant();
 createCardRestaurant();
 createCardRestaurant();
 createCardRestaurant();
+
+new Swiper(".swiper", {
+  sliderPerView: 1,
+  loop: true,
+  autoplay: true,
+});
