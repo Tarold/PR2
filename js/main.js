@@ -28,7 +28,7 @@ const buttonClearCart = document.querySelector(".clear-cart");
 
 let login = localStorage.getItem("gloDelivery");
 
-const cart = [];
+let cart = getLocalStorage();
 
 const getData = async function (url) {
   const response = await fetch(url);
@@ -41,6 +41,15 @@ const getData = async function (url) {
 };
 
 new WOW().init();
+
+function getLocalStorage() {
+  let task = localStorage.getItem("gloDeliveryCart");
+  if (task) {
+    return (task = JSON.parse(localStorage.getItem("gloDeliveryCart")));
+  } else {
+    return [];
+  }
+}
 
 function toggleModal() {
   modal.classList.toggle("is-open");
@@ -246,7 +255,7 @@ function addToCart(event) {
     const cost = card.querySelector(".card-price-bold").textContent;
     const id = card.id;
 
-    let cart = JSON.parse(document.cookie);
+    let cart = getLocalStorage();
     const food = cart.find(function (item) {
       return item.id === id;
     });
@@ -261,13 +270,13 @@ function addToCart(event) {
         count: 1,
       });
     }
-    document.cookie = JSON.stringify(cart);
-    console.log("cart", JSON.parse(document.cookie));
+    localStorage.setItem("gloDeliveryCart", JSON.stringify(cart));
   }
 }
 
 function renderCart() {
-  let cart = JSON.parse(document.cookie);
+  cart = getLocalStorage();
+  console.log("cart", cart);
   modalBody.textContent = "";
 
   cart.forEach(function ({ id, title, cost, count }) {
@@ -294,7 +303,7 @@ function renderCart() {
 
 function changeCount(event) {
   const target = event.target;
-  let cart = JSON.parse(document.cookie);
+  cart = getLocalStorage();
   if (target.classList.contains("counter-button")) {
     const food = cart.find(function (item) {
       return item.id === target.dataset.id;
@@ -307,7 +316,7 @@ function changeCount(event) {
       }
     }
     if (target.classList.contains("counter-plus")) food.count++;
-    document.cookie = JSON.stringify(cart);
+    localStorage.setItem("gloDeliveryCart", JSON.stringify(cart));
     renderCart();
   }
 }
@@ -326,7 +335,7 @@ function init() {
 
   buttonClearCart.addEventListener("click", function () {
     cart.length = 0;
-    document.cookie = JSON.stringify(cart);
+    localStorage.setItem("gloDeliveryCart", JSON.stringify(cart));
     renderCart();
   });
   modalBody.addEventListener("click", changeCount);
