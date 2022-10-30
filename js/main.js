@@ -201,6 +201,7 @@ function openGoods(event) {
   const target = event.target;
 
   const restaraunt = target.closest(".card");
+
   if (restaraunt) {
     cardsMenu.textContent = "";
 
@@ -245,6 +246,7 @@ function addToCart(event) {
     const cost = card.querySelector(".card-price-bold").textContent;
     const id = card.id;
 
+    let cart = JSON.parse(document.cookie);
     const food = cart.find(function (item) {
       return item.id === id;
     });
@@ -259,10 +261,13 @@ function addToCart(event) {
         count: 1,
       });
     }
+    document.cookie = JSON.stringify(cart);
+    console.log("cart", JSON.parse(document.cookie));
   }
 }
 
 function renderCart() {
+  let cart = JSON.parse(document.cookie);
   modalBody.textContent = "";
 
   cart.forEach(function ({ id, title, cost, count }) {
@@ -289,11 +294,12 @@ function renderCart() {
 
 function changeCount(event) {
   const target = event.target;
-
+  let cart = JSON.parse(document.cookie);
   if (target.classList.contains("counter-button")) {
     const food = cart.find(function (item) {
       return item.id === target.dataset.id;
     });
+    console.log("food", cart);
     if (target.classList.contains("counter-minus")) {
       food.count--;
       if (food.count === 0) {
@@ -301,11 +307,14 @@ function changeCount(event) {
       }
     }
     if (target.classList.contains("counter-plus")) food.count++;
+    document.cookie = JSON.stringify(cart);
     renderCart();
   }
 }
 
 function init() {
+  cart;
+
   getData("./db/partners.json").then(function (data) {
     data.forEach(createCardRestaurant);
   });
@@ -317,6 +326,7 @@ function init() {
 
   buttonClearCart.addEventListener("click", function () {
     cart.length = 0;
+    document.cookie = JSON.stringify(cart);
     renderCart();
   });
   modalBody.addEventListener("click", changeCount);
