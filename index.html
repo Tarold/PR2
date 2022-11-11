@@ -1,207 +1,114 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delivery Food - доставка їжі додому</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <a href="index.html" class="logo">
-          <img src="img/logo.svg" alt="logo" class="logo" />
-        </a>
-        <input
-          type="text"
-          class="input input-address"
-          placeholder="Адреса доставки"
-        />
-        <div class="buttons">
-          <span class="user-name"></span>
-          <button class="button button-primary button-auth">
-            <img src="img/userWhite.svg" alt="user" class="button-icon" />
-            <span class="button-text">Увійти</span>
-          </button>
-          <button class="button" id="cart-button">
-            <img src="img/shopping-cart.svg" alt="user" class="button-icon" />
-            <span class="button-text">Кошик</span>
-          </button>
-          <button class="button button-primary button-out">
-            <img src="img/userWhite.svg" alt="user" class="button-icon" />
-            <span class="button-text">Вийти</span>
-          </button>
-        </div>
-      </header>
-    </div>
-    <!-- /.container -->
-    <main class="main">
-      <div class="container">
-        <div class="swiper">
-          <section class="container-promo swiper-wrapper">
-            <section class="promo pizza swiper-slide">
-              <h1 class="promo-title">
-                Онлайн сервіс <br />доставки їжі додому
-              </h1>
-              <p class="promo-text">
-                Страви з улюбленого ресторану привезе кур'єр у рукавичках, масці
-                та з антисептиком
-              </p>
-            </section>
-            <section class="promo kebab swiper-slide">
-              <h1 class="promo-title">
-                Шашлыки на майские <br />
-                со скидкой 35%
-              </h1>
-              <p class="promo-text">
-                Закажите шашлыки в любом ресторане до 10 мая и получите скидку
-                по промокоду OMAGAD
-              </p>
-            </section>
-            <section class="promo vegetables swiper-slide">
-              <h1 class="promo-title">
-                Скидка 20% на всю еду <br />
-                по промокоду LOVE.JS
-              </h1>
-              <p class="promo-text">
-                Блюдо из ресторана привезут вместе с двумя подарочными книгами
-                по фронтенду
-              </p>
-            </section>
-            <section class="promo sushi swiper-slide">
-              <h1 class="promo-title">
-                Сеты со скидкой до 30% <br />
-                в ресторанах
-              </h1>
-              <p class="promo-text">
-                Скидки на сеты до 30 мая по промокоду DADADA
-              </p>
-            </section>
-          </section>
-        </div>
-        <section class="restaraunts">
-          <div class="section-heading">
-            <h2 class="section-title">Ресторани</h2>
-            <input
-              type="text"
-              class="input input-search"
-              placeholder="Пошук страв та ресторанів"
-            />
-          </div>
-          <div class="cards">
-            <!-- /.card -->
-          </div>
-          <!-- /.cards -->
-        </section>
-      </div>
-      <!-- /.container -->
-      <div class="container">
-        <section class="menu hide">
-          <div class="section-heading">
-            <h2 class="section-title" id="menu101">Пузата хата</h2>
-            <div class="card-info">
-              <div class="rating hide" id="menu105">
-                <img src="img/star.svg" alt="rating" class="rating-star" />
-                <div id="menu102">4.5</div>
-              </div>
-              <div class="price" id="menu103">від 100 грн</div>
-              <div class="category" id="menu104">Народні страви</div>
-            </div>
-          </div>
-          <div class="cards cards-menu"></div>
-          <!-- /.cards -->
-        </section>
-      </div>
-      <footer class="footer">
-        <div class="container">
-          <div class="footer-block">
-            <img src="img/logo.svg" alt="logo" class="logo footer-logo" />
-            <nav class="footer-nav">
-              <a href="" class="footer-link">Ресторанам</a>
-              <a href="" class="footer-link">Кур'єрам</a>
-              <a href="" class="footer-link">Прес-центр</a>
-              <a href="" class="footer-link">Контакти</a>
-            </nav>
-            <div class="social-links">
-              <a href="" class="social-link"
-                ><img src="img/Inst.svg" alt="instagram"
-              /></a>
-              <a href="" class="social-link"
-                ><img src="img/Facebook.svg" alt="facebook"
-              /></a>
-              <a href="" class="social-link"
-                ><img src="img/telegram.svg" alt="telegram"
-              /></a>
-            </div>
-          </div>
-          <!-- /.footer-block -->
-        </div>
-      </footer>
-      <div class="modal">
-        <div class="modal-dialog">
-          <div class="modal-header">
-            <h3 class="modal-title">Кошик</h3>
-            <button class="close">&times;</button>
-          </div>
-          <div class="modal-body"></div>
-          <!-- /.modal-body -->
-          <div class="modal-footer">
-            <span class="modal-pricetag">1250</span>
-            <div class="footer-buttons">
-              <button class="button button-primary">Оформить заказ</button>
-              <button class="button clear-cart">Отмена</button>
-            </div>
-          </div>
-          <!-- /.modal-footer -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <div class="modal modal-auth">
-        <div class="modal-dialog modal-dialog-auth">
-          <button class="close-auth close">&times;</button>
+<html lang="en">
 
-          <form id="logInForm">
-            <fieldset class="modal-body modal-auth-form">
-              <legend class="modal-title">Авторизація</legend>
-              <div class="modal-auth-container">
-                <div class="modal-auth-item">
-                  <span>Логін</span>
-                  <input id="login" type="text" />
-                </div>
-                <div class="modal-auth-item">
-                  <span>Пароль</span>
-                  <input id="password" type="password" />
-                </div>
-              </div>
-            </fieldset>
-            <div class="modal-footer">
-              <div class="footer-buttons footer-login">
-                <button class="button button-login" type="submit">
-                  Увійти
-                </button>
-              </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./libs/bootstrap.min.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Quiz</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-between p-1 p-sm-2 p-md-3">
+            <div class="logo d-flex">
+              <div class="logo-img"></div>
+              <span class="logo-text h1">BURGER-QUIZ</span>
             </div>
-          </form>
+            <h1 class="contacts d-none d-md-block">GLO Academy</h1>
+          </div>
         </div>
       </div>
-    </main>
-    <script src="js/wow.min.js"></script>
-    <script src="js/main.js" type="module"></script>
-    <script src="js/disabledScroll.js"></script>
-  </body>
+    </div>
+  </header>
+
+  <section class="main">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-center p-1 p-sm-2 p-md-3">
+            <div class="content"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="d-flex flex-column align-items-center p-1 p-sm-2 p-md-3">
+            <h2 class="main-title text-center h1">Пройди тест и собери</h2>
+            <h2 class="main-title text-center h1">бургер своей мечты</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-center p-1 p-sm-2 p-md-3">
+            <div class="arrow display-4">&dArr;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-center p-1 p-sm-2 p-md-3">
+            <button type="button" class="btn btn-outline-danger" id="btnOpenModal">
+              <span class="btnText h1">Пройди тест и получи результат</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal" tabindex="-1" role="dialog" id="modalBlock">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ответь на вопрос:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body  d-flex flex-column align-items-center" id="modalBody">
+          <h5 class="question p-1 p-sm-2 p-md-3 text-center" id="question"></h5>
+          <div class="answers w-100 p-1 p-sm-2 p-md-3" id="answers">
+            <form action="#" id="formAnswers" class="formAnswers d-flex flex-wrap justify-content-around">
+              <!-- <div class="answers-item d-flex flex-column">
+                <input type="radio" id="answerItem1" name="answer" class="d-none">
+                <label for="answerItem1" class="d-flex flex-column justify-content-between">
+                  <img class="answerImg" src="./image/burger.png" alt="burger">
+                  <span>Стандарт</span>
+                </label>
+              </div>
+              <div class="answers-item d-flex justify-content-center">
+                <input type="radio" id="answerItem2" name="answer" class="d-none">
+                <label for="answerItem2" class="d-flex flex-column justify-content-between">
+                  <img class="answerImg" src="./image/burgerBlack.png" alt="burger">
+                  <span>Черный</span>
+                </label>
+              </div> -->
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" id="modalFooter">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="prev">Prev</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="next">Next</button>
+          <button type="button" class="btn btn-primary sendBtn d-none" id="send">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script/script.js"></script>
+</body>
+
 </html>
