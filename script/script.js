@@ -9,18 +9,34 @@ document.addEventListener('DOMContentLoaded', function () {
   const prevButton = document.querySelector('#prev');
   const sendButton = document.querySelector('#send');
 
+  const firebaseConfig = {
+    apiKey: 'AIzaSyAORpKz4l6WSuZKVcq4KwmhSY3mcaWLch4',
+    authDomain: 'web5-bd509.firebaseapp.com',
+    databaseURL: 'https://web5-bd509-default-rtdb.firebaseio.com',
+    projectId: 'web5-bd509',
+    storageBucket: 'web5-bd509.appspot.com',
+    messagingSenderId: '512681031250',
+    appId: '1:512681031250:web:e9af04f8140e8915a7118b',
+    measurementId: 'G-J4YE9T9LZE',
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
   const getData = () => {
     formAnswers.textContent = 'LOAD';
 
+    nextButton.classList.add('d-none');
+    prevButton.classList.add('d-none');
+
     setTimeout(() => {
-      fetch('./questions.json')
-        .then((res) => res.json())
-        .then((obj) => playTest(obj.questions))
-        .catch((err) => {
-          formAnswers.textContent = 'Ошибка загрузки данных';
-          console.error(err);
-        });
-    }, 1000);
+      firebase
+        .database()
+        .ref()
+        .child('questions')
+        .once('value')
+        .then((snap) => playTest(snap.val()));
+    }, 500);
   };
 
   // обработчики событий открытия/закрытия модального окна
@@ -48,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'justify-content-center'
         );
         answerItem.innerHTML = `
-          <input type="${questions[index].type}" id="${answer.title}" name="answer" class="d-none">
+        <input type="${questions[index].type}" id="${answer.title}" name="answer" class="d-none" value="${answer.title}">
           <label for="${answer.title}" class="d-flex flex-column justify-content-between">
             <img class="answerImg" src=${answer.url} alt="burger">
             <span>${answer.title}</span>
@@ -122,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
       checkAnswer();
       numberQuestion++;
       renderQuestions(numberQuestion);
-      console.log(finalAnswers);
+      firebase.database().ref().child('contacts').push(finalAnswers);
     };
   };
 });
